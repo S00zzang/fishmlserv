@@ -6,7 +6,6 @@ authors = [
     {name = "S00zzang", email = "sujinpark8719561@gmail.com"},
 ]
 dependencies = [
-    "fishmlserv @ file:///${PROJECT_ROOT}/",
     "uvicorn[standard]>=0.30.6",
     "fastapi>=0.112.2",
     "matplotlib>=3.9.2",
