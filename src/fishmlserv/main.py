@@ -22,6 +22,10 @@ def fish(length:float, weight:float):
 	Returns:
 	dict: 물고기 종류를 담은 딕셔너리
 	"""
+	with open("/home/s00zzang/code/fishmlserv/src/fishmlserv/model/model.pkl", "rb") as f:
+		fish_model = pickle.load(f)
+
+
 	# prediction = fish_model.predic([[length, weight]])
 	fish_class = "몰라"
 	
