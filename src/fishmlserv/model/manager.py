@@ -1,3 +1,5 @@
+import os
+
 def get_model_path():
 	my_path = __file__
 	#home/s00zzang/code/fishmlserv/src/fishmlserv/model/manager.py
