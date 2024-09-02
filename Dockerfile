@@ -1,9 +1,10 @@
-From python:3.11.9-slim-bullseye
+From python:3.11
 
 WORKDIR /code
 
-COPY . /code/
+COPY src/fishmlserv/main.py /code/
 
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-CMD ["uvicorn", "src.fishmlserv.main:app", "--host", "0.0.0.0", "--port", "8765"]
+RUN pip install git+https://github.com/S00zzang/fishmlserv.git@0.7/manifest
+
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8080"]
