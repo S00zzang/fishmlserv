@@ -2,6 +2,7 @@ from typing import Union
 from fastapi import FastAPI
 from fishmlserv.model.manager import get_model_path
 from sklearn.neighbors import KNeighborsClassifier
+from fishmlserv.model.prediction import prediction
 import pickle
 
 app = FastAPI()
@@ -26,7 +27,7 @@ def fish(length:float, weight:float):
 	dict: 물고기 종류를 담은 딕셔너리
 	"""
 
-	fish_class = run_prediction(length, weight)
+	fish_class = prediction(length, weight)
 	
 	return {
 		"prediction": fish_class,
