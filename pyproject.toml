@@ -1,17 +1,26 @@
 [project]
 name = "fishmlserv"
-version = "0.1.0"
+version = "0.1.2"
 description = "Creating a ML model -usingsklartn(KNeighborsClassifier"
 authors = [
     {name = "S00zzang", email = "sujinpark8719561@gmail.com"},
 ]
 dependencies = [
-    "fishmlserv @ file:///${PROJECT_ROOT}/",
+
 ]
-requires-python = "==3.11.*"
+requires-python = ">=3.8"
 readme = "README.md"
 license = {text = "MIT"}
 
+[project.scripts]
+get-model-path = "fishmlserv.model.manager:get_model_path"
+get-prediction = "fishmlserv.model.prediction:main"
 
 [tool.pdm]
-distribution = false
+distribution = true
+
+[tool.pdm.dev-dependencies]
+note = [
+    "notebook>=7.2.2",
+    "matplotlib>=3.9.2"
+]
