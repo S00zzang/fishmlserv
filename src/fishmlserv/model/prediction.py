@@ -3,6 +3,9 @@ import fire
 from fishmlserv.model.manager import get_model_path
 import pickle
 
+#모델을 전역 변수로 캐시
+fish_model = None
+
 def load_model():
 	global fish_model
 	if fish_model is None:
