@@ -29,13 +29,12 @@ def fish(length:float, weight:float):
 		fish_model = pickle.load(f)
 
 
-	# prediction = fish_model.predic([[length, weight]])
-	fish_class = "몰라"
+	prediction = fish_model.predict([[length, weight]])
 	
-	#if length > 30.0:
-	#	prediction = "도미"
-	#else: 
-	#	prediction = "빙어"
+	if prediction[0] == 1 :
+		fish_class = "도미"
+	else: 
+		fish_class = "빙어"
 
 	return {
 		"prediction": fish_class,
