@@ -3,12 +3,20 @@ import fire
 from fishmlserv.model.manager import get_model_path
 import pickle
 
+def load_model():
+	global fish_model
+	if fish_model is None:
+		with open(get_model_path(), 'rb') as f:
+                	fish_model = pickle.load(f)
+
+	return fish_model
+
+
 def prediction(l:float, w:float):
 	
-	with open(get_model_path(), 'rb') as f:
-		fish_model = pickle.load(f)
+	m = load_model()
 
-	prediction = fish_model.predict([[l, w]])[0]
+	prediction = m.predict([[l, w]])[0]
 
 	if prediction == 1:
 		fish_name = "도미"
